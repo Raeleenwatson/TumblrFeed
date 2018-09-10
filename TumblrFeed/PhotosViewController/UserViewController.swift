@@ -12,8 +12,8 @@ import AlamofireImage
 class UserViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var posts: [[String: Any]] = []
-    @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +32,10 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 print(dataDictionary)
                 
                 // TODO: Get the posts and store in posts property
+                
                 // Get the dictionary from the response key
                 let responseDictionary = dataDictionary["response"] as! [String: Any]
+                
                 // Store the returned array of dictionaries in our posts property
                 self.posts = responseDictionary["posts"] as! [[String: Any]]
                 
@@ -49,6 +51,8 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return 5
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
+        cell.textLabel?.text = "This is row \(indexPath.row)"
         
         let post = posts[indexPath.row]
         if let photos = post["photos"] as? [[String: Any]] {
@@ -63,11 +67,12 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
             // 4.
             let url = URL(string: urlString)
             
+            cell.myImageView.af_setImage(withURL: url!)
         }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
-        cell.textLabel?.text = "This is row \(indexPath.row)"
-        cell.myImageView.af_setImage(withURL: url!)
+        
+        //cell.textLabel?.text = "This is row \(indexPath.row)"
+        //cell.myImageView.af_setImage(withURL: url!)
         
         return cell
     }

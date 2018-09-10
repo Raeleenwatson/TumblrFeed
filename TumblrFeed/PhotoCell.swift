@@ -12,7 +12,6 @@ class PhotoCell: UITableViewCell {
     
     @IBOutlet weak var myImageView: UIImageView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
