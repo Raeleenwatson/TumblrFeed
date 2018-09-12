@@ -48,11 +48,10 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
-        cell.textLabel?.text = "This is row \(indexPath.row)"
         
         let post = posts[indexPath.row]
         if let photos = post["photos"] as? [[String: Any]] {
@@ -69,10 +68,6 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             cell.myImageView.af_setImage(withURL: url!)
         }
-        
-        
-        //cell.textLabel?.text = "This is row \(indexPath.row)"
-        //cell.myImageView.af_setImage(withURL: url!)
         
         return cell
     }

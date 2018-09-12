@@ -6,25 +6,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="fw8-Zd-3SU">
-            <objects>
-                <viewController id="Rxx-dQ-ctL" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="AR5-0q-XED">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="y1c-TI-6T4"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KWY-jg-JPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-914" y="-28"/>
-        </scene>
         <!--User View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -33,24 +19,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m05-If-zp8">
-                                <rect key="frame" x="0.0" y="-20" width="375" height="687"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m05-If-zp8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <imageView key="tableFooterView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Wnn-cV-Zgi">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="228" id="vUv-Op-BZ7" customClass="PhotoCell" customModule="TumblrFeed" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="228"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vUv-Op-BZ7" id="xqa-gg-LaU">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="227.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k0K-i7-ktn">
+                                                    <rect key="frame" x="15" y="11" width="345" height="206"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="k0K-i7-ktn" secondAttribute="trailing" id="C7W-D3-grM"/>
+                                                <constraint firstItem="k0K-i7-ktn" firstAttribute="top" secondItem="xqa-gg-LaU" secondAttribute="topMargin" id="RK5-PO-bu1"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="k0K-i7-ktn" secondAttribute="bottom" id="WkZ-Zv-oaP"/>
+                                                <constraint firstItem="k0K-i7-ktn" firstAttribute="leading" secondItem="xqa-gg-LaU" secondAttribute="leadingMargin" id="qhY-WJ-ol2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
+                                        <connections>
+                                            <outlet property="myImageView" destination="k0K-i7-ktn" id="A7k-B2-5Om"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="m05-If-zp8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="402-KY-IZv"/>
+                            <constraint firstItem="m05-If-zp8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4NQ-g3-pax"/>
+                            <constraint firstItem="m05-If-zp8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Lvh-ve-kTq"/>
+                            <constraint firstItem="m05-If-zp8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="X1A-3n-SdQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <connections>
-                            <outlet property="myImageView" destination="Wnn-cV-Zgi" id="BNq-Ye-GqU"/>
-                        </connections>
                     </view>
                     <connections>
-                        <outlet property="myImageView" destination="Wnn-cV-Zgi" id="qtZ-MD-5X7"/>
                         <outlet property="tableView" destination="m05-If-zp8" id="4a9-vW-n9Y"/>
                     </connections>
                 </viewController>
