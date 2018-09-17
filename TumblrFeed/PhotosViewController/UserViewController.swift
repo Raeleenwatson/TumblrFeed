@@ -11,14 +11,36 @@ import AlamofireImage
 
 class UserViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var photoCellImage: PhotoCell!
     var posts: [[String: Any]] = []
+
     
     @IBOutlet weak var tableView: UITableView!
+   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //let photoViewController = segue.destination as! PhotoDetailsViewController
+        
+        //photoViewController.image = self.photoCellImage.myImageView.image
+        
+        
+        let photoViewController = segue.destination as! PhotoDetailsViewController
+        
+        photoViewController.image = photoCellImage.imageView!.image
+        let vc = segue.destination as! PhotoDetailsViewController
+        let cell = sender as! UITableViewCell
+        
+        
+        vc.image = cell.imageView!.image
+        
+    }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+    
         tableView.delegate = self
         tableView.dataSource = self
+    
         
         // Network request snippet
         let url = URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts/photo?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV")!
@@ -92,3 +114,4 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
     */
 
 }
+
