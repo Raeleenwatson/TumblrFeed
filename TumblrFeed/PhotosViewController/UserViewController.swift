@@ -11,26 +11,17 @@ import AlamofireImage
 
 class UserViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var photoCellImage: PhotoCell!
     var posts: [[String: Any]] = []
 
     
     @IBOutlet weak var tableView: UITableView!
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //let photoViewController = segue.destination as! PhotoDetailsViewController
-        
-        //photoViewController.image = self.photoCellImage.myImageView.image
-        
-        
-        let photoViewController = segue.destination as! PhotoDetailsViewController
-        
-        photoViewController.image = photoCellImage.imageView!.image
+    
         let vc = segue.destination as! PhotoDetailsViewController
-        let cell = sender as! UITableViewCell
+        let cell = sender as! PhotoCell
         
-        
-        vc.image = cell.imageView!.image
+        vc.image = cell.myImageView.image
         
     }
     

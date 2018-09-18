@@ -58,13 +58,9 @@
                             <constraint firstItem="m05-If-zp8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="X1A-3n-SdQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <connections>
-                            <outlet property="imageView" destination="k0K-i7-ktn" id="pEz-0N-ah9"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="rU8-KO-yro"/>
                     <connections>
-                        <outlet property="photoCellImage" destination="vUv-Op-BZ7" id="4CV-09-Mau"/>
                         <outlet property="tableView" destination="m05-If-zp8" id="4a9-vW-n9Y"/>
                     </connections>
                 </viewController>
@@ -79,10 +75,19 @@
                     <view key="view" contentMode="scaleToFill" id="7Cb-DJ-fsF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9qw-CB-gD6">
+                                <rect key="frame" x="16" y="80" width="359" height="158"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="AzK-qs-OhJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="LtW-Xu-w3q"/>
+                    <connections>
+                        <outlet property="imageView" destination="9qw-CB-gD6" id="7vt-eK-gcW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cmf-5v-B9a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
