@@ -20,6 +20,8 @@ class PhotoDetailsViewController: UIViewController {
         //imageView.image = image
         // Do any additional setup after loading the view.
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

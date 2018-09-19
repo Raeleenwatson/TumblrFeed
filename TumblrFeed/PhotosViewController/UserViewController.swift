@@ -25,6 +25,10 @@ class UserViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
